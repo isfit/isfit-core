@@ -1,0 +1,29 @@
+<%= form_for(@role) do |f| %>
+  <% if @role.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@role.errors.count, "error") %> prohibited this role from being saved:</h2>
+
+      <ul>
+      <% @role.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :person %>
+	 <%= f.text_field :person_tokens, "data-pre" => @role.people.map(&:id_name).to_json %>
+    <%= f.label :group %>
+	 <%= f.text_field :group_tokens, "data-pre" => @role.groups.map(&:id_name).to_json %>
+    <%= f.label :section %>
+    <%= f.text_field :section_tokens, "data-pre" => @role.sections.map(&:id_name).to_json %>
+    <%= f.label :festival %>
+    <%= f.text_field :festival_tokens, "data-pre" => @role.festivals.map(&:id_name).to_json %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

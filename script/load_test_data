@@ -1,0 +1,25 @@
+#!/usr/bin/env ruby
+require File.expand_path('../../config/boot',  __FILE__)
+require File.expand_path('../../config/environment',  __FILE__)
+
+[Group, Section, Festival, Person, Position].each { |m| m.delete_all }
+
+foundation = Group.create!(:name_en => 'Foundation')
+
+vineet = Person.create!(:given_name => 'Vineet', :family_name => 'Sharma')
+foundation_leader = Position.create!(:title_en => 'Head of the ISFiT Foundation', :title_no => 'Leder av Stiftelsen ISFiT', :person_id => vineet.id)
+foundation_leader.groups << foundation
+runa = Person.create!(:given_name => 'Runa', :family_name => 'Nilssen')
+foundation_assistant_leader = Position.create!(:title_en => 'Assistant Head of the ISFiT Foundation', :title_no => 'Nestleder av Stiftelsen ISFiT', :person_id => runa.id)
+foundation_assistant_leader.groups << foundation
+
+isfit07 = Festival.create!(:year => 2007)
+isfit09 = Festival.create!(:year => 2009)
+isfit11 = Festival.create!(:year => 2011)
+
+economy = Section.create!(:name_en => 'Economy', :festival_id => isfit09.id)
+it = Group.create!(:name_en => 'IT', :section_id => economy.id)
+
+ole_petter = Person.create!(:given_name => 'Ole Petter', :family_name => 'Bang')
+it_leader = Position.create!(:title_en => 'Head of IT', :title_no => 'IT-sjef', :person_id => ole_petter.id)
+it_leader.groups << it

@@ -1,0 +1,25 @@
+ActionController::Routing::Routes.draw do |map|
+  map.root :controller => 'organization', :action => 'show'
+
+  
+
+
+map.resources :organization, :shallow => true do |o|
+  o.resources :festivals do |f|
+    f.resources :sections do |s|
+      s.resources :groups do |g|
+        g.resources :positions, :has_one => :person
+      end
+    end
+    f.resources :groups do |g|
+      g.resources :positions, :has_one => :person
+    end
+  end
+  o.resources :groups do |g|
+    g.resources :positions, :has_one => :person
+  end
+end
+  map.resources :people, :has_many => :positions
+  map.resources :isfit, :has_many => :people
+  map.connect ':controller/:action'
+end

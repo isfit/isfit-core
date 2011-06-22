@@ -1,0 +1,11 @@
+<div id="toolbar">
+  <%= link_to(t('sections.actions.edit'), edit_section_path(@section), :class => :edit) %>
+  <%= link_to(t('groups.actions.new'), new_section_group_path(@section), :class => :add) %>
+</div>
+<div id="items">
+  <% if @section.groups.any? %>
+    <%= render :partial => 'groups/list', :locals => {:groups => @section.groups} %>
+  <% else %>
+    <%= t('sections.empty') %>
+  <% end %>
+</div>  

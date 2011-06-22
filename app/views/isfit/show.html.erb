@@ -1,0 +1,15 @@
+<div id="toolbar">
+	<%= link_to(t('people.actions.show'), :controller => "organization", :action =>"people") %>
+</div>
+<%= link_to("Units", :controller=> "organization", :action =>"show") %>
+
+<%
+   t = Time.now
+   a = t.strftime("%W")   
+   k=0
+   if a =~/[\D]/
+       k = 4
+   end
+%>
+<%=a%>
+<%=k%>

@@ -1,0 +1,23 @@
+<h2><%= @position.new_record? ? t('positions.actions.new') : t('positions.actions.edit') %></h2>
+<% form_for [@group, @position] do |f| %>
+  <%= f.label(:title_en) %>
+  <%= f.text_field(:title_en, :class => 'text') %>
+  <%= f.label(:title_no) %>
+  <%= f.text_field(:title_no, :class => 'text') %>
+  <%= f.label :holder %>
+	<%= f.text_field :person_tokens, "data-pre" => @position.people.map(&:id_name).to_json %>
+  <%= link_to t('people.actions.new'), new_person_path %>
+  <%= f.label "English description" %>
+  <%= f.text_area(:description_en, :class => 'text_area') %>
+  <%= f.label "Norwegian description" %>
+  <%= f.text_area(:description_no, :class => 'text_area') %>
+  <%#= f.label :group_dn %>
+  <%#= f.text_area(:group_dn, :class => 'text_area') %>
+  <%#= f.label(:admission_id) %>
+  <%#= f.text_field(:admission_id, :class => 'text') %> 
+  <%#= f.label("Main group of position") %>
+  <%#= f.select 'group_id', @groups.to_select_2 %> 
+  <%= f.label :groups %>
+	<%= f.text_field :group_tokens, "data-pre" => @position.groups.map(&:id_name).to_json %>
+<%= f.submit(t('actions.save')) %>
+<% end %>

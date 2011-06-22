@@ -1,0 +1,11 @@
+ActionController::Routing::Routes.draw do |map|
+  map.root :controller => 'organization', :action => 'show'
+
+  map.resources :festivals, :has_many => [:sections, :groups]
+  map.resources :sections, :has_many => :groups
+  map.resources :groups, :has_many => :positions
+  map.resources :positions
+  map.resources :people, :has_many => :positions
+	map.resources :positions, :has_one => :person
+	map.connect ':controller/:action'
+end

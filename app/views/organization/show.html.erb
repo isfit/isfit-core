@@ -1,0 +1,12 @@
+<div id="toolbar">
+  <%= link_to(t('festivals.actions.new'), new_organization_festival_path(:organization_id => 1), :class => :add) %>
+  <%= link_to(t('groups.actions.new'), new_organization_group_path(:organization_id => 1), :class => :add) %>
+</div>
+<div id="items">
+  <% if Organization.groups.any? || Organization.festivals.any? %>
+    <%= render :partial => 'groups/list', :locals => {:groups => Organization.groups} %>
+    <%= render :partial => 'festivals/list', :locals => {:festivals => Organization.festivals} %>
+  <% else %>
+    <%= t('festivals.empty') %>
+  <% end %>
+</div>  

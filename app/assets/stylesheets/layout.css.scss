@@ -1,0 +1,160 @@
+/*
+ * Dags modifikasjoner
+ */
+
+h1, h2, h3, h4, h5, h6 {margin:10px 0 0 0;}
+p {margin:0px 0px 20px 0px;}
+
+img.alignright {float:right; margin: 0 0 30px 30px;}
+
+/* Formatting */
+body, td, input {
+  font-family: Helvetica, Georgia, Arial;
+  font-size: 13px;
+  color:#333333;
+}
+
+
+
+h1 {
+  font-size: 50px;
+}
+h2 {
+  font-size: 20px;
+}
+h3 {
+  font-size: 14px;
+}
+h4 {
+  font-size: 12px;
+}
+a {
+  color: maroon;
+}
+a:hover {
+  text-decoration: underline;
+}
+div.entry a {
+  color: #000;
+}
+div#toolbar {
+  color: #aaa;  
+}
+div#whereami {
+  color: #aaa;
+}
+div#whereami a {
+  color: #000;
+  text-decoration: none;
+}
+div#whereami a:hover {
+  text-decoration: underline;
+}
+
+/* Layout */
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: #333333;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+div#container {
+  background-color: white;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0;
+  text-align: left;
+  width: 80%;
+}
+div#wrapper {
+  background-color: white;
+  padding: 20px;
+}
+h1, h2 {
+  margin-top: 0;
+}
+div.clear {
+  clear: both;
+}
+div#whereami {
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  color: #aaa;
+  padding: 8px 0 8px 0;
+  margin: 4px 0 8px 0;  
+}
+div#content {
+
+}
+div#toolbar {
+  border-bottom: 1px solid #ccc;
+  padding: 0 0 8px 0;
+  margin: 4px 0 8px 0;
+}
+div#toolbar a {
+  margin-right: 10px;
+}
+div#items div {
+  padding: 4px;
+}
+label {
+  display: block;
+  margin-bottom: 4px;
+}
+input[type=text] {
+  display: block;
+  margin-bottom: 8px;
+}
+input[type=submit] {
+  display: block;
+  margin-top: 12px;
+}
+input.number {
+  width: 5em;
+}
+input.text {
+  width: 10em;
+}
+a.festival, a.section, a.group, div.position {
+  background-repeat: no-repeat;
+  height: 24px;
+  padding-left: 24px;
+}
+a.festival {
+  background-image: url(../images/festival.gif)
+}
+a.section {
+  background-image: url(../images/section.gif);
+  background-position: 2px 1px;
+}
+a.group {
+  background-image: url(../images/group.png)
+}
+div.position {
+  background-image: url(../images/group.png)
+}
+a.add {
+  background: no-repeat url(../images/add.gif);
+  height: 24px;
+  padding-left: 24px;
+}
+a.edit {
+  background: no-repeat url(../images/edit.gif);
+  height: 24px;
+  padding-left: 24px;
+}
+.odd {
+
+}
+.even {
+  background-color: #eee;
+}
+table#positionList {
+  width: 100%;
+}

@@ -1,0 +1,42 @@
+<h2><%= @person.new_record? ? t('people.actions.new') : t('people.actions.edit')%></h2>
+<% form_for @person do |f| %>
+      <h3>Personal Information</h3>
+	<%= f.label(:given_name)%>
+	<%= f.text_field(:given_name, :class=>'text') %>
+	<%= f.label(:family_name)%>
+        <%= f.text_field(:family_name, :class=>'text') %>
+        <%= f.label("Birthday YYYY-MM-DD")%>
+        <%= f.text_field :date_of_birth %>
+        <%= f.label("Gender - only in int for now, 1 = male, 0 = female")%>
+        <%= f.text_field :gender %>
+        <%= f.label "Next of kin" %>
+        <%= f.text_field :next_of_kin_name %>
+        <%= f.label "Next of kin phone number" %>
+        <%= f.text_field :next_of_kin_tlf %>
+
+      <h3>Contact Information</h3>
+        <%= f.label(:address)%>
+        <%= f.text_field :address %>
+        <%= f.label("Postal code")%>
+        <%= f.text_field :postal_code %>
+        <%= f.label("City")%>
+        <%= f.text_field :city %>
+        <%= f.label :country %>
+        <%= f.select :country_id, Country.to_select %>
+        <%= f.label :phone %>
+        <%= f.text_field :phone %>
+        <%= f.label "Private email" %>
+        <%= f.text_field :private_email %>
+
+      <h3>Other information</h3>
+        <%= f.label "Study place" %>
+        <%= f.select :study_place_id, StudyPlace.to_select %>
+        <%= f.label "Field of study" %>
+        <%= f.text_field :study %>
+        <%= f.label "Cardnumber NTNU" %>
+        <%= f.text_field :cardnumber_ntnu %>
+        <%= f.label "Cardnumber Samfundet" %>
+        <%= f.text_field :cardnumber_samfundet %>
+
+	<%=f.submit(t('actions.save')) %>
+<%end%>

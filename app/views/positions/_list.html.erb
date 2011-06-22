@@ -1,0 +1,14 @@
+<table id="positionList">
+  <tr>
+    <th><%= t('positions.title') %></th>
+    <th>group_dn</th>
+    <th>admission_id</th>
+  </tr>
+  <% positions.each do |position| %>
+  <tr class="<%= cycle(:odd, :even) %>">
+    <td><%= link_to(position.title_en, position_path(position)) %></td>
+    <td><%= position.group_dn %></td>
+    <td><%= position.admission_id %></td>
+  </tr>
+  <% end %>
+</table>

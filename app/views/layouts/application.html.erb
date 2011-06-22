@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		<title>ISFiT - International Student Festival in Trondheim</title>
+    <%= stylesheet_link_tag "application" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+	</head>
+  <body>
+    <div id="container">
+      <div id="wrapper">
+        <h1><%= t('title') %></h1>
+        <div id="whereami">
+          <%= raw render :text => where_am_i %>
+        </div>
+        <div id="content">
+          <% flash.each do |name,msg|%>
+            <%= content_tag :div, msg, :id=>"flash_#{name}" %>
+          <% end %>
+          <%= yield %>
+          <div class="clear"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

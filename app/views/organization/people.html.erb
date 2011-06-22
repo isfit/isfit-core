@@ -1,0 +1,8 @@
+<div id="toolbar">
+	<%=link_to(t('people.actions.new'), new_person_path) %>
+</div>
+<% if Organization.people.any? %>
+	<%=render :partial => 'people/list', :locals => {:people => Organization.people} %>
+<%else%>
+	<%= t('people.empty')%>
+<%end%>

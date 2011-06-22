@@ -1,0 +1,28 @@
+<div id="toolbar">
+  <%= link_to(t('positions.actions.edit'), edit_position_path(@position), :class => :edit) %> 
+</div>
+<div id="items">
+  <h2>Information</h2>
+  <% if @position.groups.any? %>
+    <h3>This position is part of the following groups</h3>
+    <%= render :partial => 'groups/list', :locals => {:groups => @position.groups} %>
+  <% else %>
+    <%= t('positions.empty') %>
+  <% end %>
+  <h3>Position information</h3>
+  <p><b>English title:</b> <%= @position.title_en %><br>
+    <b>Norwegian title:</b> <%= @position.title_no %><br>
+    <b>Current holders:</b> <%#= link_to @position.person.name, person_path(@position.person) %>
+      <ul>
+        <% @position.people.each do |p| %>
+          <li> <%= link_to p.name, person_path(p) %></li>
+        <% end %>
+      </ul>
+  </p>
+  <p><b>English description</b><br>
+    <%= @position.description_en %>
+  </p>
+  <p><b>Norwegian description</b><br>
+    <%= @position.description_no %>
+</p>
+</div>  

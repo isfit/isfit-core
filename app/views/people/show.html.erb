@@ -1,0 +1,31 @@
+<h2><%=@person.name%></h2>
+<div id="toolbar">
+  <%=link_to(t('people.actions.edit'), edit_person_path(@person), :class => :edit) %> 
+</div>
+<h3>Personal information</h3>
+<p><b>Full name:</b> <%=h @person.given_name %> <%=h @person.family_name %><br>
+  <b>Date of birth:</b> <%= @person.date_of_birth %><br>
+  <b>Gender:</b> <%=h @person.gender %><br>
+  <b>Next of kin:</b> <%=h @person.next_of_kin_name %> - <%=h @person.next_of_kin_tlf %>
+</p>
+<h3>Contact information</h3>
+<p><b>Address</b><br>
+  <%=h @person.address %><br>
+  <%=h @person.postal_code %> <%=h @person.city %><br>
+  <% if @person.country %>
+    <%=h @person.country.name %>
+  <%end%>
+</p>
+<p><b>Phone:</b> <%=h @person.phone %><br>
+  <b>Private email:</b> <%=h @person.private_email %>
+</p>
+<h3>Other information</h3>
+<p><% if @person.study_place %>
+    <b>Place of study:</b> <%= @person.study_place.name %><br>
+    <b>Field of study:</b> <%= @person.study %><br>
+    <%end%>
+  <b>Cardnumber NTNU:</b> <%=h @person.cardnumber_ntnu %><br>
+  <b>Cardnumber Samfundet:</b> <%=h @person.cardnumber_samfundet %>
+</p>
+<h2>Positions</h2>
+<%= render :partial => 'positions/list', :locals => { :positions => @person.positions } %>
