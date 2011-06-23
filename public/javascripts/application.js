@@ -1,9 +1,9 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
 $(function() {
-  $("#role_person_tokens").tokenInput("/people.json", {
+  $("#role_user_tokens").tokenInput("/users.json", {
     crossDomain: false,
-    prePopulate: $("#role_person_tokens").data("pre"),
+    prePopulate: $("#role_user_tokens").data("pre"),
     preventDuplicates: true
   });
 });
@@ -36,9 +36,9 @@ $(function() {
   });
 });
 $(function() {
-  $("#position_person_tokens").tokenInput("/people.json", {
+  $("#position_user_tokens").tokenInput("/users.json", {
     crossDomain: false,
-    prePopulate: $("#position_person_tokens").data("pre"),
+    prePopulate: $("#position_user_tokens").data("pre"),
     preventDuplicates: true
   });
 });

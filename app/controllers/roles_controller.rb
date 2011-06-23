@@ -14,7 +14,7 @@ class RolesController < ApplicationController
   # GET /roles/1.xml
   def show
     @role = Role.find(params[:id])
-    @people = @role.people_abstraction
+    @users = @role.users_abstraction
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @role }
@@ -35,7 +35,7 @@ class RolesController < ApplicationController
   # GET /roles/1/edit
   def edit
     @role = Role.find(params[:id])
-    @people = @role.people_abstraction
+    @users = @role.users_abstraction
   end
 
   # POST /roles
@@ -89,14 +89,14 @@ class RolesController < ApplicationController
 
 private
   def update_roles
-    @role.people_abstraction = []
+    @role.users_abstraction = []
     @role.festivals.each do |f|
       f.sections.each do |s|
         s.groups.each do |g|
           g.positions.each do |po|
-            po.people.each do |p|
-              unless p.nil?
-                @role.people_abstraction << p
+            po.users.each do |u|
+              unless u.nil?
+                @role.users_abstraction << u
               end
             end
           end
@@ -106,9 +106,9 @@ private
     @role.sections.each do |s|
       s.groups.each do |g|
         g.positions.each do |po|
-          po.people.each do |p|
-            unless p.nil?
-              @role.people_abstraction << p
+          po.users.each do |u|
+            unless u.nil?
+              @role.users_abstraction << u
             end
           end
         end
@@ -116,15 +116,15 @@ private
     end
     @role.groups.each do |g|
       g.positions.each do |po|
-        po.people.each do |p|
-          unless p.nil?
-            @role.people_abstraction << p
+        po.users.each do |u|
+          unless u.nil?
+            @role.users_abstraction << u
           end
         end
       end
     end
-    @role.people.each do |p|
-      @role.people_abstraction << p
+    @role.users.each do |u|
+      @role.users_abstraction << u
     end
   end
 end

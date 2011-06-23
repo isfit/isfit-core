@@ -14,8 +14,8 @@
     <b>Norwegian title:</b> <%= @position.title_no %><br>
     <b>Current holders:</b> <%#= link_to @position.person.name, person_path(@position.person) %>
       <ul>
-        <% @position.people.each do |p| %>
-          <li> <%= link_to p.name, person_path(p) %></li>
+        <% @position.users.each do |u| %>
+          <li> <%= link_to u.name, user_path(u) %></li>
         <% end %>
       </ul>
   </p>

@@ -14,8 +14,8 @@
   <div class="field">
     <%= f.label :name %>
     <%= f.text_field :name %>
-    <%= f.label :person %>
-	 <%= f.text_field :person_tokens, "data-pre" => @role.people.map(&:id_name).to_json %>
+    <%= f.label :user %>
+	 <%= f.text_field :user_tokens, "data-pre" => @role.users.map(&:id_name).to_json %>
     <%= f.label :group %>
 	 <%= f.text_field :group_tokens, "data-pre" => @role.groups.map(&:id_name).to_json %>
     <%= f.label :section %>

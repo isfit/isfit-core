@@ -27,4 +27,11 @@ class UsersController < ApplicationController
       render :action => 'edit'
     end
   end
+
+  def index
+    @users = User.name_like(params[:q])
+    respond_to do |format|
+      format.json { render :json => @users.map(&:id_name) }
+    end
+  end
 end

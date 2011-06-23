@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110615211230) do
+ActiveRecord::Schema.define(:version => 20110622214009) do
 
   create_table "countries", :force => true do |t|
     t.string "name"
@@ -50,7 +50,46 @@ ActiveRecord::Schema.define(:version => 20110615211230) do
     t.datetime "updated_at"
   end
 
-  create_table "people", :force => true do |t|
+  create_table "positions", :force => true do |t|
+    t.string  "title_en"
+    t.string  "title_no"
+    t.integer "user_id"
+    t.text    "description_en"
+    t.text    "description_no"
+    t.string  "group_dn"
+    t.integer "admission_id"
+    t.integer "group_id"
+    t.integer "number",         :default => 1, :null => false
+  end
+
+  create_table "roles", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "roles_sections", :id => false, :force => true do |t|
+    t.integer  "role_id",    :null => false
+    t.integer  "section_id", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sections", :force => true do |t|
+    t.string  "name_en"
+    t.string  "name_no"
+    t.integer "festival_id"
+    t.string  "email",          :limit => 1000
+    t.string  "tag",                            :null => false
+    t.text    "description_en"
+    t.text    "description_no"
+  end
+
+  create_table "study_places", :force => true do |t|
+    t.string "name"
+  end
+
+  create_table "users", :force => true do |t|
     t.string   "given_name"
     t.string   "family_name"
     t.date     "date_of_birth"
@@ -89,69 +128,26 @@ ActiveRecord::Schema.define(:version => 20110615211230) do
     t.string   "password_hash"
     t.string   "password_salt"
     t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  create_table "people_positions", :id => false, :force => true do |t|
-    t.integer "person_id",   :null => false
+  create_table "users_positions", :id => false, :force => true do |t|
+    t.integer "user_id"
     t.integer "position_id", :null => false
   end
 
-  create_table "people_role_abstractions", :id => false, :force => true do |t|
+  create_table "users_role_abstractions", :id => false, :force => true do |t|
     t.integer  "role_id",    :null => false
-    t.integer  "person_id",  :null => false
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "people_roles", :id => false, :force => true do |t|
+  create_table "users_roles", :id => false, :force => true do |t|
     t.integer  "role_id",    :null => false
-    t.integer  "person_id",  :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "positions", :force => true do |t|
-    t.string  "title_en"
-    t.string  "title_no"
-    t.integer "person_id"
-    t.text    "description_en"
-    t.text    "description_no"
-    t.string  "group_dn"
-    t.integer "admission_id"
-    t.integer "group_id"
-    t.integer "number",         :default => 1, :null => false
-  end
-
-  create_table "roles", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "roles_sections", :id => false, :force => true do |t|
-    t.integer  "role_id",    :null => false
-    t.integer  "section_id", :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "sections", :force => true do |t|
-    t.string  "name_en"
-    t.string  "name_no"
-    t.integer "festival_id"
-    t.string  "email",          :limit => 1000
-    t.string  "tag",                            :null => false
-    t.text    "description_en"
-    t.text    "description_no"
-  end
-
-  create_table "study_places", :force => true do |t|
-    t.string "name"
-  end
-
-  create_table "users", :force => true do |t|
-    t.string   "username"
-    t.string   "password_digest"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
