@@ -12,7 +12,7 @@ class Role < ActiveRecord::Base
   attr_reader :user_tokens, :section_tokens, :group_tokens, :festival_tokens
 
   def user_tokens=(ids)
-    self.person_ids = ids.split(",")
+    self.user_ids = ids.split(",")
   end
   def section_tokens=(ids)
     self.section_ids = ids.split(",")
