@@ -1,0 +1,5 @@
+<% sections.each do |section| %>
+  <div class="<%= cycle(:odd, :even) %>">
+    <%= link_to(section.name_en, festival_section_path(section.festival, section), :class => :section) %>
+  </div>
+<% end %>

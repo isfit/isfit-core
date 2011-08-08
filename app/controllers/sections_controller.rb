@@ -27,17 +27,14 @@ class SectionsController < ApplicationController
   end
 
   def index
-    @sections = Section.name_like(params[:q])
-    respond_to do |format|
-      format.json { render :json => @sections.map(&:id_name) }
-    end
+    redirect_to(festival_path(params[:festival_id]))
   end
 
   private
 
   def save_section
     if @section.save
-      redirect_to(section_path(@section))
+      redirect_to(festival_section_path(@section.festival,@section))
     else
       render(:action => 'new')
     end

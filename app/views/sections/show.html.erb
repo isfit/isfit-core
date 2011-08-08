@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name en:</b>
+  <%= @section.name_en %>
+</p>
+
+<p>
+  <b>Name no:</b>
+  <%= @section.name_no %>
+</p>
+
+<p>
+  <b>Festival:</b>
+  <%= @section.festival_id %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @section.email %>
+</p>
+
+<p>
+  <b>Tag:</b>
+  <%= @section.tag %>
+</p>
+
+<p>
+  <b>Description en:</b>
+  <%= @section.description_en %>
+</p>
+
+<p>
+  <b>Description no:</b>
+  <%= @section.description_no %>
+</p>
+
+
+<%= link_to 'Edit', edit_festival_section_path(@section.festival, @section) %> |
+<%= link_to 'Back', festival_sections_path %>
