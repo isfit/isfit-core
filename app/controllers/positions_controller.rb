@@ -24,29 +24,26 @@ class PositionsController < ApplicationController
     @position.admission_id = 1
     @group = Group.find_by_id(params[:group_id])
     @position.groups << @group
-    save_position
+    if @position.save
+      redirect_to @position, :notice => "Successfully created position."
+    else
+      render :action => 'new'
+    end
   end
 
   def edit
     @position = Position.find_by_id(params[:id])
     @groups = Group.find(:all)
     @group = Group.find_by_id(params[:group_id])
-    render(:action => 'new')
   end
 
   def update
-    @position = Position.find_by_id(params[:id])
-    @position.attributes = params[:position]
-    save_position
-  end
-
-  private
-
-  def save_position
-    if @position.save
-      redirect_to(position_path(@position))
+    @position = Position.find(params[:id])
+    if @position.update_attributes(params[:position])
+       redirect_to @position, :notice => "Successfully created position."
     else
-      render(:action => 'new')
-    end
+      render :action => 'edit'
+    end 
   end
+
 end
