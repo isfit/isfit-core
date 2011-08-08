@@ -1,8 +1,5 @@
-<h2><%= @section.new_record? ? t('sections.actions.new') : t('sections.actions.edit') %></h2>
-<% form_for [@section.festival, @section] do |f| %>
-  <%= f.label(:name_en) %>
-  <%= f.text_field(:name_en, :class => 'text') %>
-  <%= f.label(:name_no) %>
-  <%= f.text_field(:name_no, :class => 'text') %>
-  <%= f.submit(t('actions.save')) %>
-<% end %>
+<h1>New section</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', festival_sections_path %>

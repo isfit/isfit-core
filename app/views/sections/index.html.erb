@@ -1,0 +1,35 @@
+<h1>Listing sections</h1>
+
+<table>
+  <tr>
+    <th>Name en</th>
+    <th>Name no</th>
+    <th>Festival</th>
+    <th>Email</th>
+    <th>Tag</th>
+    <th>Description en</th>
+    <th>Description no</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @sections.each do |section| %>
+  <tr>
+    <td><%= section.name_en %></td>
+    <td><%= section.name_no %></td>
+    <td><%= section.festival_id %></td>
+    <td><%= section.email %></td>
+    <td><%= section.tag %></td>
+    <td><%= section.description_en %></td>
+    <td><%= section.description_no %></td>
+    <td><%= link_to 'Show', section %></td>
+    <td><%= link_to 'Edit', edit_section_path(section) %></td>
+    <td><%= link_to 'Destroy', section, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Section', new_section_path %>

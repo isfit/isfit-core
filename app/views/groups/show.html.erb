@@ -1,5 +1,5 @@
 <div id="toolbar">
-  <%= link_to(t('groups.actions.edit'), edit_group_path(@group), :class => :edit) %>
+  <%= link_to(t('groups.actions.edit'), @group.festival_id != nil ? festival_group_path(@group.festival, @group):section_group_path(@group.section, @group), :class => :edit) %>
   <%= link_to(t('positions.actions.new'), new_group_position_path(@group), :class => :add) %>
 </div>
 <div id="items">

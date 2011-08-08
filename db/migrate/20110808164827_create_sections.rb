@@ -1,13 +1,15 @@
 class CreateSections < ActiveRecord::Migration
-  def self.up
+  def change
     create_table :sections do |t|
       t.string :name_en
       t.string :name_no
       t.integer :festival_id
-    end
-  end
+      t.string :email
+      t.string :tag
+      t.text :description_en
+      t.text :description_no
 
-  def self.down
-    drop_table :sections
+      t.timestamps
+    end
   end
 end
