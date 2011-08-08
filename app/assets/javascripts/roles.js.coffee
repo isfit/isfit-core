@@ -1,5 +1,5 @@
 $ ->
-	$("#role_user_tokens").tokenInput("/stianfr/core.isfit.org/users.json", {
+	$("#role_user_tokens").tokenInput("/users.json", {
     crossDomain: false,
     prePopulate: $("#role_user_tokens").data("pre"),
     preventDuplicates: true
