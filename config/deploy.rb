@@ -16,11 +16,11 @@ set :user, "passenger"
 set :use_sudo, false
 
 # repo details
-set :scm, :subversion
+set :scm, :git
 set :scm_username, "passenger"
-set :repository, "file:///var/svn/isfit-core"
-#set :branch, "master"
-#set :git_enable_submodules, 1
+set :repository, "git@github.com:isfit/isfit-core.git"
+set :branch, "master"
+set :git_enable_submodules, 1
 
 # tasks
 namespace :deploy do
