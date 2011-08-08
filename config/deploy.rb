@@ -10,7 +10,7 @@ role :db, "nova.isfit.org", :primary => true
 # server details
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
-set :deploy_to, "/srv/www/core.isfit.org"
+set :deploy_to, "/srv/www/dev.core.isfit.org" 
 set :deploy_via, :remote_cache
 set :user, "passenger"
 set :use_sudo, false
@@ -20,7 +20,7 @@ set :scm, :git
 set :scm_username, "passenger"
 set :repository, "git@github.com:isfit/isfit-core.git"
 set :branch, "master"
-set :git_enable_submodules, 1
+#set :git_enable_submodules, 1
 
 # tasks
 namespace :deploy do
