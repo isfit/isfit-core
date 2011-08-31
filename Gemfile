@@ -1,27 +1,30 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0.rc6'
-##gem 'rails', '3.0.5'
-#gem 'rails',     :git => 'git://github.com/rails/rails.git', :branch=>'3-1-stable'
-
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+gem 'rails', '3.1.0'
 
 gem 'sqlite3'
-#gem 'mysql2', '0.2.7'
-gem 'mysql'
-gem 'sass'
-gem 'coffee-script'
-gem 'uglifier'
-gem 'therubyracer'
+gem 'mysql2'
+gem 'capistrano'
+gem 'cancan'
+gem 'jquery-rails'
+gem 'nifty-generators'
+
+
+# Gems used only for assets and not required
+# in production environments by default.
+group :assets do
+  gem 'sass-rails', "  ~> 3.1.0"
+  gem 'coffee-rails', "~> 3.1.0"
+  gem 'uglifier'
+end
+
 
 # Use unicorn as the web server
 # gem 'unicorn'
 
-# Deploy with Capistrano
-gem 'capistrano'
-gem 'cancan'
 
+# To use debugger
+# gem 'ruby-debug19', :require => 'ruby-debug'
 group :development, :test do 
   gem 'webrat'
   gem 'rspec'
@@ -30,7 +33,9 @@ group :development, :test do
   gem 'watchr'
 end
 
-gem 'jquery-rails'
-gem 'nifty-generators'
-gem "bcrypt-ruby", :require => "bcrypt"
-gem "mocha", :group => :test
+group :test do
+  # Pretty printed test output
+  gem 'turn', :require => false
+	gem "mocha", :group => :test
+end
+
