@@ -18,6 +18,7 @@ group :assets do
   gem 'uglifier'
 end
 
+gem 'therubyracer'
 
 # Use unicorn as the web server
 # gem 'unicorn'
