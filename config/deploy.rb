@@ -52,3 +52,15 @@ namespace :deploy do
 end
 
 after 'deploy:update_code', 'deploy:symlink_shared'
+
+
+
+desc "remotely console"
+task :console, :roles => :app do
+  input = ''
+  run "cd #{current_path} && rails console production" do |channel, stream, data|
+    next if data.chomp == input.chomp || data.chomp == ''
+    print data
+    channel.send_data(input = $stdin.gets) if data =~ /:\d{3}:\d+(\*|>)/
+  end
+end
