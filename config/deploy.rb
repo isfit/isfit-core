@@ -26,7 +26,7 @@ set :use_sudo, false
 set :scm, :git
 set :scm_username, "passenger"
 set :repository, "git@github.com:isfit/isfit-core.git"
-set :branch, "3.1-test"
+set :branch, "master"
 
 # tasks
 namespace :deploy do
