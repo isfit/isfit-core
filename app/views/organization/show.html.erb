@@ -4,7 +4,7 @@
 </div>
 <div id="items">
   <% if Organization.groups.any? || Organization.festivals.any? %>
-    <%= render :partial => 'groups/list', :locals => {:groups => Organization.groups} %>
+    <%#= render :partial => 'groups/list', :locals => {:groups => Organization.groups} %>
     <%= render :partial => 'festivals/list', :locals => {:festivals => Organization.festivals} %>
   <% else %>
     <%= t('festivals.empty') %>
