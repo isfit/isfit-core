@@ -1,7 +1,7 @@
 <div id="toolbar">
-  <%= link_to(t('festivals.actions.edit'), edit_festival_path(@festival), :class => :edit) %>
-  <%= link_to(t('sections.actions.new'), new_festival_section_path(@festival), :class => :add) %>
-  <%= link_to(t('groups.actions.new'), new_festival_group_path(@festival), :class => :add) %>
+  <%= link_to("Edit festival", edit_festival_path(@festival), :class => :edit) %>
+  <%= link_to("New section", new_festival_section_path(@festival), :class => :add) %>
+  <%= link_to("New group", new_festival_group_path(@festival), :class => :add) %>
 </div>
 <div id="items">
   <% if @festival.groups.any? || @festival.sections.any? %>

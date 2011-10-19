@@ -1,4 +1,4 @@
-<h2><%= @group.new_record? ? t('groups.actions.new') : t('groups.actions.edit') %></h2>
+<h2><%= @group.new_record? ? "New group" : "Edit group" %></h2>
 <%= form_for [@group.festival || @group.section, @group] do |f| %>
   <%= f.label(:name_en) %>
   <%= f.text_field(:name_en, :class => 'text') %>

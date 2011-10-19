@@ -1,6 +1,6 @@
-<h2><%= @festival.new_record? ? t('festivals.actions.new') : t('festivals.actions.edit') %></h2>
-<% form_for @festival do |f| %>
-  <%= f.label(:year) %>
+<h2><%= @festival.new_record? ? "New Festival" : "Edit festival" %></h2>
+<%= form_for @festival do |f| %>
+  <%= f.label :year %>
   <%= f.text_field(:year, :class => 'number') %>
-  <%= f.submit(t('actions.save')) %>
+  <%= f.submit "Save" %>
 <% end %>

@@ -39,7 +39,7 @@ class GroupsController < ApplicationController
 
   def save_group
     if @group.save
-      @group.festival_id != nil ? redirect_to(festival_groups_path(@group.festival, @group)):redirect_to(section_group_path(@group.section, @group))
+      @group.festival_id != nil ? redirect_to(festival_group_path(@group.festival, @group)):redirect_to(section_group_path(@group.section, @group))
     else
       render(:action => 'new')
     end
