@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0'
+gem 'rails', '3.1.3'
 
 #gem 'sqlite3'
 gem 'mysql2'
@@ -19,6 +19,7 @@ group :assets do
 end
 
 gem 'therubyracer'
+gem "bcrypt-ruby", :require => "bcrypt"
 
 # Use unicorn as the web server
 # gem 'unicorn'

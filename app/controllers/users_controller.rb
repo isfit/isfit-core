@@ -37,4 +37,21 @@ class UsersController < ApplicationController
       format.json { render :json => @users.map(&:id_name) }
     end
   end
+
+  def generate_password
+    @user = User.find(params[:id])
+    @user.password = get_password
+    if @user.save
+      UserMailer.new_password(@user).deliver
+      redirect_to @user, notice: "A new password has been sent. The new password is: #{@user.password}"
+    else
+      redirect_to @user, notice: "Something went wrong"
+    end
+  end
+
+  private
+
+  def get_password
+    IO.popen("pwgen -c -B -n").gets.chomp
+  end
 end

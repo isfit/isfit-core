@@ -4,7 +4,11 @@ IsfitCore::Application.routes.draw do
 
  # match 'signup' => 'users#new', :as => :signup
 
-  resources :users
+  resources :users do
+    member do
+      post 'generate_password'
+    end
+  end
 
   resources :roles
   match 'logout' => 'sessions#destroy', :as => :logout
