@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110622214009) do
+ActiveRecord::Schema.define(:version => 20120107123637) do
 
   create_table "countries", :force => true do |t|
     t.string "name"
@@ -51,15 +52,22 @@ ActiveRecord::Schema.define(:version => 20110622214009) do
   end
 
   create_table "positions", :force => true do |t|
-    t.string  "title_en"
-    t.string  "title_no"
+    t.string   "title_en"
+    t.string   "title_no"
+    t.integer  "user_id"
+    t.text     "description_en"
+    t.text     "description_no"
+    t.string   "group_dn"
+    t.integer  "admission_id"
+    t.integer  "group_id"
+    t.integer  "number",         :default => 1, :null => false
+    t.datetime "publish_from"
+    t.datetime "publish_to"
+  end
+
+  create_table "positions_users", :id => false, :force => true do |t|
     t.integer "user_id"
-    t.text    "description_en"
-    t.text    "description_no"
-    t.string  "group_dn"
-    t.integer "admission_id"
-    t.integer "group_id"
-    t.integer "number",         :default => 1, :null => false
+    t.integer "position_id", :null => false
   end
 
   create_table "roles", :force => true do |t|
@@ -133,14 +141,9 @@ ActiveRecord::Schema.define(:version => 20110622214009) do
     t.datetime "updated_at"
   end
 
-  create_table "users_positions", :id => false, :force => true do |t|
-    t.integer "user_id"
-    t.integer "position_id", :null => false
-  end
-
   create_table "users_role_abstractions", :id => false, :force => true do |t|
-    t.integer  "role_id",    :null => false
-    t.integer  "user_id"
+    t.integer  "role_id",                   :null => false
+    t.integer  "user_id",    :default => 0, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
